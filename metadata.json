@@ -1,0 +1,6 @@
+{
+  "name": "Questionário de Avaliação e Desenvolvimento",
+  "description": "Aplicação PWA instalável com modo offline e integração com Google Workspace, Google Sheets e Google Drive para registro e acompanhamento do desenvolvimento infantil (BNCC).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

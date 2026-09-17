@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------------------- */
+/* Variáveis CSS de Acessibilidade e Temas (Padrão vs Alto Contraste)         */
+/* -------------------------------------------------------------------------- */
+
+:root {
+  --color-canvas-bg: #f8fafc;
+  --color-canvas-surface: #ffffff;
+  --color-canvas-subtle: #f1f5f9;
+  --color-canvas-border: #e2e8f0;
+  --color-canvas-border-strong: #cbd5e1;
+  --color-canvas-text: #0f172a;
+  --color-canvas-text-muted: #64748b;
+  --color-accent-primary: #4f46e5;
+  --color-accent-hover: #4338ca;
+  --color-accent-contrast: #ffffff;
+  --color-accent-ring: #4f46e5;
+  --contrast-border-width: 1px;
+}
+
+/* Tema de Alto Contraste - Diretrizes WCAG AAA (Mínimo 7:1) */
+[data-theme="alto_contraste"],
+.theme-alto-contraste {
+  color-scheme: dark;
+  --color-canvas-bg: #000000;
+  --color-canvas-surface: #0a0a0a;
+  --color-canvas-subtle: #141414;
+  --color-canvas-border: #ffffff;
+  --color-canvas-border-strong: #ffffff;
+  --color-canvas-text: #ffffff;
+  --color-canvas-text-muted: #fef08a; /* Amarelo vibrante legível sobre fundo preto */
+  --color-accent-primary: #facc15;   /* Amarelo de altíssimo contraste */
+  --color-accent-hover: #fde047;
+  --color-accent-contrast: #000000;
+  --color-accent-ring: #facc15;
+  --contrast-border-width: 2px;
+}
+
+/* Regras Globais para o Tema Alto Contraste */
+[data-theme="alto_contraste"],
+[data-theme="alto_contraste"] body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="alto_contraste"] * {
+  border-color: #ffffff;
+}
+
+/* Fundo da tela principal e containers */
+[data-theme="alto_contraste"] .bg-\[\#F8FAFC\],
+[data-theme="alto_contraste"] .bg-white,
+[data-theme="alto_contraste"] .bg-slate-50,
+[data-theme="alto_contraste"] .bg-slate-100,
+[data-theme="alto_contraste"] .bg-gray-50 {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="alto_contraste"] .bg-slate-50\/70,
+[data-theme="alto_contraste"] .bg-slate-50\/80,
+[data-theme="alto_contraste"] .bg-slate-50\/90,
+[data-theme="alto_contraste"] .bg-slate-100\/80,
+[data-theme="alto_contraste"] .bg-indigo-50,
+[data-theme="alto_contraste"] .bg-indigo-50\/60,
+[data-theme="alto_contraste"] .bg-emerald-50,
+[data-theme="alto_contraste"] .bg-amber-50,
+[data-theme="alto_contraste"] .bg-blue-50 {
+  background-color: #121212 !important;
+  border-color: #ffffff !important;
+}
+
+/* Textos principais e secundários em Alto Contraste */
+[data-theme="alto_contraste"] .text-\[\#0F172A\],
+[data-theme="alto_contraste"] .text-slate-900,
+[data-theme="alto_contraste"] .text-slate-800,
+[data-theme="alto_contraste"] .text-slate-700,
+[data-theme="alto_contraste"] .text-indigo-950,
+[data-theme="alto_contraste"] .text-emerald-900,
+[data-theme="alto_contraste"] .text-amber-900 {
+  color: #ffffff !important;
+}
+
+[data-theme="alto_contraste"] .text-slate-600,
+[data-theme="alto_contraste"] .text-slate-500,
+[data-theme="alto_contraste"] .text-slate-400,
+[data-theme="alto_contraste"] .text-indigo-700,
+[data-theme="alto_contraste"] .text-indigo-800,
+[data-theme="alto_contraste"] .text-emerald-700,
+[data-theme="alto_contraste"] .text-amber-700 {
+  color: #fef08a !important; /* Amarelo de alto contraste para máxima legibilidade */
+}
+
+/* Bordas em Alto Contraste */
+[data-theme="alto_contraste"] .border-slate-200,
+[data-theme="alto_contraste"] .border-slate-300,
+[data-theme="alto_contraste"] .border-slate-100,
+[data-theme="alto_contraste"] .border-indigo-200,
+[data-theme="alto_contraste"] .border-indigo-100,
+[data-theme="alto_contraste"] .border-emerald-200,
+[data-theme="alto_contraste"] .border-amber-200 {
+  border-color: #ffffff !important;
+  border-width: 2px !important;
+}
+
+/* Inputs, Textareas e Seletores */
+[data-theme="alto_contraste"] input[type="text"],
+[data-theme="alto_contraste"] input[type="email"],
+[data-theme="alto_contraste"] input[type="url"],
+[data-theme="alto_contraste"] input[type="date"],
+[data-theme="alto_contraste"] textarea,
+[data-theme="alto_contraste"] select {
+  background-color: #050505 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+[data-theme="alto_contraste"] input::placeholder,
+[data-theme="alto_contraste"] textarea::placeholder {
+  color: #facc15 !important;
+  opacity: 0.85;
+}
+
+[data-theme="alto_contraste"] input:focus,
+[data-theme="alto_contraste"] textarea:focus,
+[data-theme="alto_contraste"] select:focus,
+[data-theme="alto_contraste"] button:focus-visible {
+  outline: 3px solid #facc15 !important;
+  outline-offset: 2px !important;
+}
+
+/* Botões primários e de ação em Alto Contraste */
+[data-theme="alto_contraste"] .bg-indigo-600,
+[data-theme="alto_contraste"] .bg-indigo-700,
+[data-theme="alto_contraste"] .bg-indigo-800 {
+  background-color: #facc15 !important;
+  color: #000000 !important;
+  font-weight: 800 !important;
+  border: 2px solid #ffffff !important;
+}
+
+[data-theme="alto_contraste"] .bg-indigo-600 *,
+[data-theme="alto_contraste"] .bg-indigo-700 *,
+[data-theme="alto_contraste"] .bg-indigo-800 * {
+  color: #000000 !important;
+}
+
+[data-theme="alto_contraste"] .text-indigo-600,
+[data-theme="alto_contraste"] .text-indigo-500 {
+  color: #facc15 !important;
+}
+
+/* Botões de escala (1 a 5) no questionário */
+[data-theme="alto_contraste"] .bg-slate-100 {
+  border: 2px solid #ffffff !important;
+}
+
+/* Destaques e badges de status */
+[data-theme="alto_contraste"] .bg-emerald-600,
+[data-theme="alto_contraste"] .bg-emerald-700 {
+  background-color: #4ade80 !important;
+  color: #000000 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="alto_contraste"] .bg-emerald-600 *,
+[data-theme="alto_contraste"] .bg-emerald-700 * {
+  color: #000000 !important;
+}
+
+[data-theme="alto_contraste"] .bg-amber-500,
+[data-theme="alto_contraste"] .bg-amber-600 {
+  background-color: #fb923c !important;
+  color: #000000 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="alto_contraste"] .text-emerald-600,
+[data-theme="alto_contraste"] .text-emerald-500 {
+  color: #4ade80 !important;
+}
+
+/* Modais e painéis flutuantes */
+[data-theme="alto_contraste"] .bg-white {
+  background-color: #0a0a0a !important;
+  border: 2px solid #ffffff !important;
+}
+
+[data-theme="alto_contraste"] .bg-black\/60,
+[data-theme="alto_contraste"] .bg-black\/50 {
+  background-color: rgba(0, 0, 0, 0.88) !important;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #relatorio-bncc-print, #relatorio-bncc-print * {
+    visibility: visible;
+  }
+  #relatorio-bncc-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: white;
+  }
+}
+
